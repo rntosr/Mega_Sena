@@ -1,0 +1,36 @@
+from pprint import pprint as pp
+import random
+
+#Criar um verificador para não gerar lista menor que 6 números
+n = int(int(input('   **** Olá! **** \nBem-Vindo ao Gerador de jogos da MEGA SENA. \n '
+                  '\n=> Informe quantos números nos jogos (no mínimo 6):')))
+
+#informar numeros para serem sorteados ou de 1 a 60
+#comp1 = int(int(input('   **** Olá! **** \nBem-Vindo ao Gerador de jogos da MEGA SENA. \n '
+#                  '\n=> Informe quantos números nos jogos (no mínimo 6):')))
+#comp2
+
+#função
+def megasena():
+    lista1 = list((2,3,4,7,9,11,12,14,15,20,21,22,24,25,27,28,29,32,33,35,39,40,42,44,52,55,58,60))
+    "drum2 = list(range(1, 27))"
+    sorteio = []
+
+#randomizador
+    for _ in range(n):
+        choice = random.SystemRandom().choice(lista1)
+        lista1.pop(lista1.index(choice))
+        sorteio.append(choice)
+    sorteio = sorted(sorteio)
+    return sorteio
+    #"+ [random.SystemRandom().choice(drum2)]"
+
+ #questões
+try:
+    jogos = int(int(input('*** Vamos lá? * Vamos gerar seus números da sorte? *** \n(Quantos jogos você deseja fazer?)')) / 1)
+except:
+    budget = 0
+
+#saída
+print('**** \n **** BOA SORTE! ****')
+pp(list(megasena() for i in range(jogos)))
